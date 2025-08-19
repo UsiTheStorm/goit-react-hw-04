@@ -3,7 +3,16 @@ import React from 'react';
 import ImageCard from './ImageCard';
 
 function ImageGallery() {
-  return <div>ImageGallery</div>;
+  return (
+    <ul>
+      {/* Набір елементів списку із зображеннями */}
+      <li>
+        <div>
+          <img src="" alt="" />
+        </div>
+      </li>
+    </ul>
+  );
 }
 
 export default ImageGallery;
