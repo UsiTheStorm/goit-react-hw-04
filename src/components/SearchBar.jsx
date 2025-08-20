@@ -8,7 +8,12 @@ function SearchBar({ onSetQuery }) {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    onSetQuery(inputValue);
+    if (inputValue.trim() === '') {
+      console.log('Enter search query');
+    } else {
+      onSetQuery(inputValue);
+      setInputValue('');
+    }
   }
 
   return (
