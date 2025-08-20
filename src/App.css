@@ -45,7 +45,8 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.search-btn {
+.search-btn,
+.load-more-btn {
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
   background-color: #007bff;
@@ -56,17 +57,18 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.search-btn:hover {
+.search-btn:hover,
+.load-more-btn:hover {
   background-color: #0056b3;
 }
 
 .gallery-container {
-  margin-top: 30px;
+  margin: 30px 20px;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
   list-style: none;
   padding: 0;
@@ -91,4 +93,16 @@ body {
   height: 250px;
   object-fit: cover;
   display: block;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.load-more-btn {
+  font-size: large;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
 }

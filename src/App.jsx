@@ -1009,6 +1009,7 @@ function App() {
     <>
       <SearchBar onSetQuery={setQuery} />
       <ImageGallery images={tempData.results} />
+      <LoadMoreBtn />
     </>
   );
 }
