@@ -1,7 +1,11 @@
-import React from 'react';
+import { RingLoader } from 'react-spinners';
 
 function Loader() {
-  return <div>Loader</div>;
+  return (
+    <div className="loader-container">
+      <RingLoader color="#3699d7ff" size={80} />{' '}
+    </div>
+  );
 }
 
 export default Loader;
