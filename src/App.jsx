@@ -20,7 +20,10 @@ function App() {
   return (
     <>
       <SearchBar onSetQuery={setQuery} />
+      {error && <ErrorMessage error={error} />}
       <ImageGallery images={imageData} />
+      {loading && <Loader />}
+
       <LoadMoreBtn />
     </>
   );
