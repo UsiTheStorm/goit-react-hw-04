@@ -68,6 +68,12 @@ body {
   height: 200px;
 }
 
+.error-message {
+  text-align: center;
+  color: #495057;
+  font-size: 2rem;
+  padding: 4.8rem;
+}
 
 .gallery-container {
   margin: 30px 20px;
