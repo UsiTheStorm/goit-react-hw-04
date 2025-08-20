@@ -13,6 +13,8 @@ import { useImgFetch } from './hooks/useImgFetch';
 function App() {
   const [query, setQuery] = useState('');
 
+  const { imageData, error, loading } = useImgFetch('cat');
+
   console.log(query);
 
   return (
