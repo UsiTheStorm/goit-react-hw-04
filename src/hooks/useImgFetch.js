@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export function useImgFetch(query) {
+export function useImgFetch(query, page, setPage) {
   const [imageData, setImageData] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -11,17 +12,26 @@ export function useImgFetch(query) {
   useEffect(() => {
     if (!query) return;
 
+    // setImageData([]);
+    // setPage(1);
+
     async function getData() {
       setLoading(true);
       try {
         const response = await axios.get(`https://api.unsplash.com/search/photos`, {
-          params: { query },
+          params: { query, page, per_page: 10 },
           headers: {
             Authorization: `Client-ID ${ACCESS_KEY}`,
           },
         });
 
-        setImageData(response.data.results);
+        if (page === 1) {
+          setImageData(response.data.results);
+        } else {
+          setImageData((prev) => [...prev, ...response.data.results]);
+        }
+
+        setTotalPages(response.data.total_pages);
         setError('');
       } catch (er) {
         setError(er.message || 'Something went wrong');
@@ -32,7 +42,7 @@ export function useImgFetch(query) {
     }
 
     getData();
-  }, [query]);
+  }, [query, page]);
 
-  return { imageData, error, loading };
+  return { imageData, error, loading, totalPages };
 }

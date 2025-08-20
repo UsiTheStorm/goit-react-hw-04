@@ -18,10 +18,14 @@ function App() {
   const [query, setQuery] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState(null);
+  const [page, setPage] = useState(1);
 
-  const { imageData, error, loading } = useImgFetch('cat');
+  const { imageData, error, loading, totalPages } = useImgFetch(query, page);
 
-  // console.log(query);
+  function increasePage() {
+    setPage((page) => page + 1);
+  }
+
 
   return (
     <>
@@ -30,7 +34,7 @@ function App() {
       <ImageGallery images={imageData} onImageClick={setSelectedImg} onOpen={setIsOpen} />
       {loading && <Loader />}
 
-      {!error && !loading && <LoadMoreBtn />}
+      {!error && !loading && page < totalPages && <LoadMoreBtn onBtnClick={increasePage} />}
 
       {selectedImg && (
         <Modal
@@ -39,7 +43,7 @@ function App() {
           className="modal"
           overlayClassName="overlay"
         >
-          <ImageModal image={selectedImg} onClose={() => setIsOpen(false)} />
+          <ImageModal image={selectedImg || []} onClose={() => setIsOpen(false)} />
         </Modal>
       )}
     </>
