@@ -1,9 +1,7 @@
-import React from 'react';
-
-function LoadMoreBtn({ onBtnClick }) {
+function LoadMoreBtn({ onBtnClick, loading }) {
   return (
     <div className="load-more-container">
-      <button className="load-more-btn" onClick={onBtnClick}>
+      <button className="load-more-btn" disabled={loading} onClick={onBtnClick}>
         Load More
       </button>
     </div>

@@ -41,7 +41,9 @@ function App() {
       <ImageGallery images={imageData} onImageClick={setSelectedImg} onOpen={setIsOpen} />
       {loading && <Loader />}
 
-      {!error && !loading && page < totalPages && <LoadMoreBtn onBtnClick={increasePage} />}
+      {!error && !loading && page < totalPages && (
+        <LoadMoreBtn onBtnClick={increasePage} loading={loading} />
+      )}
 
       {/* Modal */}
       {selectedImg && (
@@ -51,7 +53,7 @@ function App() {
           className="modal"
           overlayClassName="overlay"
         >
-          <ImageModal image={selectedImg || []} onClose={() => setIsOpen(false)} />
+          <ImageModal image={selectedImg} onClose={() => setIsOpen(false)} />
         </Modal>
       )}
     </>
