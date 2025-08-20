@@ -2,7 +2,7 @@ import React from 'react';
 
 import ImageCard from './ImageCard';
 
-function ImageGallery({ images, onImageClick, onOpen }) {
+function ImageGallery({ images = [], onImageClick, onOpen }) {
   return (
     <div className="gallery-container">
       <ul className="gallery">
