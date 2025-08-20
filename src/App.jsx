@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 import Modal from 'react-modal';
@@ -26,6 +26,13 @@ function App() {
     setPage((page) => page + 1);
   }
 
+  useEffect(() => {
+    setPage(1);
+    setSelectedImg(null);
+    setIsOpen(false);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [query]);
 
   return (
     <>
@@ -36,6 +43,7 @@ function App() {
 
       {!error && !loading && page < totalPages && <LoadMoreBtn onBtnClick={increasePage} />}
 
+      {/* Modal */}
       {selectedImg && (
         <Modal
           isOpen={modalIsOpen}
