@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export function useImgFetch(query, page, setPage) {
+export function useImgFetch(query, page) {
   const [imageData, setImageData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
