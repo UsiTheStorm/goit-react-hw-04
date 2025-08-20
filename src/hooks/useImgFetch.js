@@ -24,7 +24,7 @@ export function useImgFetch(query) {
         setImageData(response.data.results);
         setError('');
       } catch (er) {
-        setError(er || 'Something went wrong');
+        setError(er.message || 'Something went wrong');
         console.error(error);
       } finally {
         setLoading(false);
