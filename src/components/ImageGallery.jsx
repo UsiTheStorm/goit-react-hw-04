@@ -2,15 +2,14 @@ import React from 'react';
 
 import ImageCard from './ImageCard';
 
-function ImageGallery() {
+function ImageGallery({ images }) {
   return (
-    <ul>
-      {/* Набір елементів списку із зображеннями */}
-      <li>
-        <div>
-          <img src="" alt="" />
-        </div>
-      </li>
+    <ul className="gallery">
+      {images.map(({ id, alt_description, urls: { small } }) => (
+        <li key={id} className="gallery-item">
+          <ImageCard img={small} alt={alt_description || 'Image'} />
+        </li>
+      ))}
     </ul>
   );
 }
