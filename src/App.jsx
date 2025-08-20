@@ -24,7 +24,7 @@ function App() {
       <ImageGallery images={imageData} />
       {loading && <Loader />}
 
-      <LoadMoreBtn />
+      {!error && !loading && <LoadMoreBtn />}
     </>
   );
 }
