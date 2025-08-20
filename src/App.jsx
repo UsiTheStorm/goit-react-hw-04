@@ -9,9 +9,13 @@ import ErrorMessage from './components/ErrorMessage';
 import ImageModal from './components/ImageModal';
 
 function App() {
+  const [query, setQuery] = useState('');
+
+  console.log(query);
+
   return (
     <>
-      <SearchBar />
+      <SearchBar onSetQuery={setQuery} />
       <ImageGallery />
     </>
   );

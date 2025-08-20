@@ -1,10 +1,27 @@
-import React from 'react';
+import { useState } from 'react';
 
-function SearchBar() {
+function SearchBar({ onSetQuery }) {
+  const [inputValue, setInputValue] = useState('');
+
+  function handleChange(e) {
+    setInputValue(e.target.value);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    onSetQuery(inputValue);
+  }
+
   return (
     <header>
-      <form>
-        <input type="text" autocomplete="off" autofocus placeholder="Search images and photos" />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+          value={inputValue}
+          onChange={handleChange}
+        />
         <button type="submit">Search</button>
       </form>
     </header>
