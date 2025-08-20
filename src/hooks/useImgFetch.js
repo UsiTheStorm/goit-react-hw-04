@@ -12,9 +12,6 @@ export function useImgFetch(query, page, setPage) {
   useEffect(() => {
     if (!query) return;
 
-    // setImageData([]);
-    // setPage(1);
-
     async function getData() {
       setLoading(true);
       try {
