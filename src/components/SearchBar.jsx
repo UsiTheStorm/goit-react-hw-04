@@ -17,8 +17,8 @@ function SearchBar({ onSetQuery }) {
   }
 
   return (
-    <header>
-      <form onSubmit={handleSubmit}>
+    <header className="header">
+      <form onSubmit={handleSubmit} className="search">
         <input
           type="text"
           autoComplete="off"
@@ -27,7 +27,9 @@ function SearchBar({ onSetQuery }) {
           value={inputValue}
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="search-btn">
+          Search
+        </button>
       </form>
     </header>
   );
